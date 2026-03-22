@@ -2,6 +2,14 @@
 
 This repository contains a clean ROS 2 description workspace for a robotics TP built for Ubuntu under WSL. It covers the full progression from a basic URDF model to articulated arms, Xacro refactoring, mobile robots, onboard sensors, and a combined mobile manipulator.
 
+## Highlights
+
+- ROS 2 Humble description package using `ament_cmake`
+- Plain URDF and modular Xacro implementations
+- RViz2 launch flows for arm, mobile, sensor, and combined robots
+- Helper scripts for setup, build, validation, and launch
+- Validated in a live Ubuntu WSL environment with RViz2 and `joint_state_publisher_gui`
+
 ## Project Scope
 
 The repository implements:
@@ -14,6 +22,24 @@ The repository implements:
 6. Exercise 2: 4-wheel mobile robot
 7. Exercise 3: mobile robot with sensors
 8. Bonus: combined mobile robot with a 3R arm
+
+## Screenshots
+
+### 2R Arm
+
+![2R arm screenshot](docs/images/2r_arm.png)
+
+### 3R Arm
+
+![3R arm screenshot](docs/images/3r_arm.png)
+
+### Mobile Robot With Sensors
+
+![Mobile robot with sensors screenshot](docs/images/mobile_with_sensors.png)
+
+### Combined Mobile Manipulator
+
+![Combined robot screenshot](docs/images/combined_robot.png)
 
 ## Repository Layout
 
@@ -32,7 +58,7 @@ The repository implements:
             └── urdf/
 ```
 
-The ROS 2 package is [my_robot_description](/home/salmane/Tps/tp2_robotic/ros2_ws/src/my_robot_description).
+The ROS 2 package is [`my_robot_description`](ros2_ws/src/my_robot_description).
 
 ## Prerequisites
 
@@ -63,7 +89,7 @@ For GUI tools like RViz2:
 2. Change into the repo:
 
    ```bash
-   cd /home/salmane/Tps/tp2_robotic
+   cd <your-repo-path>
    ```
 
 3. Open VS Code in the current WSL folder:
@@ -72,9 +98,27 @@ For GUI tools like RViz2:
    code .
    ```
 
+## Publish To GitHub
+
+Once you create an empty GitHub repository, you can publish this local repo with:
+
+```bash
+git remote add origin git@github.com:<your-user>/<your-repo>.git
+git branch -M main
+git push -u origin main
+```
+
+If you prefer HTTPS:
+
+```bash
+git remote add origin https://github.com/<your-user>/<your-repo>.git
+git branch -M main
+git push -u origin main
+```
+
 ## Install Missing ROS Packages
 
-The environment inspection found ROS 2 Humble in `/opt/ros/humble`, but this shell was not pre-sourced. It also found that `rviz2` and `xacro` were not available on `PATH` even after sourcing ROS. Follow [INSTALL_WSL_UBUNTU.md](/home/salmane/Tps/tp2_robotic/INSTALL_WSL_UBUNTU.md) to install the missing packages precisely.
+If your machine is missing ROS runtime tools, follow [INSTALL_WSL_UBUNTU.md](INSTALL_WSL_UBUNTU.md).
 
 ## Build
 
@@ -174,7 +218,7 @@ If `xacro` is unavailable, the preview and Xacro validation steps will fail hone
 
 See:
 
-- [docs/troubleshooting.md](/home/salmane/Tps/tp2_robotic/docs/troubleshooting.md)
-- [docs/validation_checklist.md](/home/salmane/Tps/tp2_robotic/docs/validation_checklist.md)
-- [docs/runtime_validation_2026-03-22.md](/home/salmane/Tps/tp2_robotic/docs/runtime_validation_2026-03-22.md)
-- [INSTALL_WSL_UBUNTU.md](/home/salmane/Tps/tp2_robotic/INSTALL_WSL_UBUNTU.md)
+- [docs/troubleshooting.md](docs/troubleshooting.md)
+- [docs/validation_checklist.md](docs/validation_checklist.md)
+- [docs/runtime_validation_2026-03-22.md](docs/runtime_validation_2026-03-22.md)
+- [INSTALL_WSL_UBUNTU.md](INSTALL_WSL_UBUNTU.md)

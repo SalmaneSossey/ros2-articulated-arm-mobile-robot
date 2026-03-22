@@ -11,7 +11,7 @@ source /opt/ros/humble/setup.bash
 Or:
 
 ```bash
-source /home/salmane/Tps/tp2_robotic/tools/source_ros.sh
+source tools/source_ros.sh
 ```
 
 ## `xacro: command not found`
@@ -47,7 +47,7 @@ Check:
 
 - ROS is sourced before building
 - `ament_cmake` is installed
-- you are running the command from [ros2_ws](/home/salmane/Tps/tp2_robotic/ros2_ws)
+- you are running the command from [ros2_ws](../ros2_ws)
 
 If you use `pyenv`, ROS may accidentally pick a Python interpreter that does not contain `catkin_pkg`. In that case, force the system interpreter:
 
@@ -55,7 +55,7 @@ Try:
 
 ```bash
 source /opt/ros/humble/setup.bash
-cd /home/salmane/Tps/tp2_robotic/ros2_ws
+cd ros2_ws
 colcon build --packages-select my_robot_description --cmake-args -DPython3_EXECUTABLE=/usr/bin/python3
 ```
 
@@ -65,14 +65,14 @@ Start with the plain URDF files:
 
 ```bash
 source /opt/ros/humble/setup.bash
-check_urdf /home/salmane/Tps/tp2_robotic/ros2_ws/src/my_robot_description/urdf/robot.urdf
-check_urdf /home/salmane/Tps/tp2_robotic/ros2_ws/src/my_robot_description/urdf/robot_2r.urdf
+check_urdf ros2_ws/src/my_robot_description/urdf/robot.urdf
+check_urdf ros2_ws/src/my_robot_description/urdf/robot_2r.urdf
 ```
 
 For Xacro models, generate a URDF first:
 
 ```bash
-source /home/salmane/Tps/tp2_robotic/tools/source_ros.sh
+source tools/source_ros.sh
 tools/generate_urdf_preview.sh 3r
 ```
 

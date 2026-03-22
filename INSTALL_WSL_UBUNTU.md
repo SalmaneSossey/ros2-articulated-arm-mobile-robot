@@ -77,7 +77,7 @@ source /opt/ros/humble/setup.bash
 This repo also provides:
 
 ```bash
-source /home/salmane/Tps/tp2_robotic/tools/source_ros.sh
+source tools/source_ros.sh
 ```
 
 ## After Installation
@@ -85,7 +85,7 @@ source /home/salmane/Tps/tp2_robotic/tools/source_ros.sh
 Restart the terminal, or reopen VS Code in WSL, then run:
 
 ```bash
-cd /home/salmane/Tps/tp2_robotic
+cd <your-repo-path>
 source tools/source_ros.sh
 tools/env_check.sh
 tools/build_workspace.sh
@@ -96,7 +96,7 @@ tools/launch_2r.sh
 If you prefer building manually and your shell uses `pyenv`, force the ROS build to use Ubuntu's Python:
 
 ```bash
-cd /home/salmane/Tps/tp2_robotic/ros2_ws
+cd ros2_ws
 source /opt/ros/humble/setup.bash
 colcon build --packages-select my_robot_description --cmake-args -DPython3_EXECUTABLE=/usr/bin/python3
 ```
