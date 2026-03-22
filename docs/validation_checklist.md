@@ -41,3 +41,9 @@
 - [ ] `TF` tree visible in RViz2
 - [ ] joints change live via `joint_state_publisher_gui`
 
+## Live Result
+
+- [x] Validated successfully on a live WSL session on `2026-03-22`
+- [x] RViz2 opened successfully in the user environment
+- [x] `joint_state_publisher_gui` opened successfully in the user environment
+- [x] 2R and 3R arm screenshots were visually confirmed

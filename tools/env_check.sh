@@ -18,7 +18,14 @@ check_cmd() {
 check_ros_executable() {
   local package_name="$1"
   local executable_name="$2"
-  if command -v ros2 >/dev/null 2>&1 && ros2 pkg executables "${package_name}" 2>/dev/null | rg -q "^${package_name} ${executable_name}$"; then
+  local matcher="grep"
+  local matcher_args=(-q "^${package_name} ${executable_name}$")
+
+  if command -v rg >/dev/null 2>&1; then
+    matcher="rg"
+  fi
+
+  if command -v ros2 >/dev/null 2>&1 && ros2 pkg executables "${package_name}" 2>/dev/null | "${matcher}" "${matcher_args[@]}"; then
     echo "[PASS] ${executable_name}: available via ros2 package ${package_name}"
   else
     echo "[FAIL] ${executable_name}: not available via ros2 package ${package_name}"

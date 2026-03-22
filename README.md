@@ -176,4 +176,5 @@ See:
 
 - [docs/troubleshooting.md](/home/salmane/Tps/tp2_robotic/docs/troubleshooting.md)
 - [docs/validation_checklist.md](/home/salmane/Tps/tp2_robotic/docs/validation_checklist.md)
+- [docs/runtime_validation_2026-03-22.md](/home/salmane/Tps/tp2_robotic/docs/runtime_validation_2026-03-22.md)
 - [INSTALL_WSL_UBUNTU.md](/home/salmane/Tps/tp2_robotic/INSTALL_WSL_UBUNTU.md)
