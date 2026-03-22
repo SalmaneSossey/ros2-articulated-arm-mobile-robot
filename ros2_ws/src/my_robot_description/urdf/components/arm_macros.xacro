@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <material name="gray">
+    <color rgba="0.65 0.65 0.65 1.0"/>
+  </material>
+  <material name="orange">
+    <color rgba="0.90 0.45 0.10 1.0"/>
+  </material>
+  <material name="blue">
+    <color rgba="0.15 0.35 0.85 1.0"/>
+  </material>
+  <material name="green">
+    <color rgba="0.15 0.70 0.25 1.0"/>
+  </material>
+
+  <xacro:macro name="arm_base_link" params="name radius length material:=gray">
+    <link name="${name}">
+      <visual>
+        <geometry>
+          <cylinder radius="${radius}" length="${length}"/>
+        </geometry>
+        <material name="${material}"/>
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder radius="${radius}" length="${length}"/>
+        </geometry>
+      </collision>
+    </link>
+  </xacro:macro>
+
+  <xacro:macro name="arm_box_link" params="name length width material:=orange">
+    <link name="${name}">
+      <visual>
+        <origin xyz="${length / 2.0} 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="${length} ${width} ${width}"/>
+        </geometry>
+        <material name="${material}"/>
+      </visual>
+      <collision>
+        <origin xyz="${length / 2.0} 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="${length} ${width} ${width}"/>
+        </geometry>
+      </collision>
+    </link>
+  </xacro:macro>
+
+  <xacro:macro name="revolute_z_joint" params="name parent child xyz limit_lower:=-3.14159 limit_upper:=3.14159">
+    <joint name="${name}" type="revolute">
+      <parent link="${parent}"/>
+      <child link="${child}"/>
+      <origin xyz="${xyz}" rpy="0 0 0"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="${limit_lower}" upper="${limit_upper}" effort="10.0" velocity="2.0"/>
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro
+    name="planar_arm_2r"
+    params="prefix parent base_xyz base_radius base_length link1_length link1_width link2_length link2_width">
+    <xacro:arm_base_link
+      name="${prefix}base_link"
+      radius="${base_radius}"
+      length="${base_length}"
+      material="gray"/>
+
+    <joint name="${prefix}world_to_base" type="fixed">
+      <parent link="${parent}"/>
+      <child link="${prefix}base_link"/>
+      <origin xyz="${base_xyz}" rpy="0 0 0"/>
+    </joint>
+
+    <xacro:arm_box_link
+      name="${prefix}link_1"
+      length="${link1_length}"
+      width="${link1_width}"
+      material="orange"/>
+    <xacro:revolute_z_joint
+      name="${prefix}joint_1"
+      parent="${prefix}base_link"
+      child="${prefix}link_1"
+      xyz="0 0 ${base_length / 2.0}"/>
+
+    <xacro:arm_box_link
+      name="${prefix}link_2"
+      length="${link2_length}"
+      width="${link2_width}"
+      material="blue"/>
+    <xacro:revolute_z_joint
+      name="${prefix}joint_2"
+      parent="${prefix}link_1"
+      child="${prefix}link_2"
+      xyz="${link1_length} 0 0"/>
+  </xacro:macro>
+
+  <xacro:macro
+    name="planar_arm_3r"
+    params="prefix parent base_xyz base_radius base_length link1_length link1_width link2_length link2_width link3_length link3_width">
+    <xacro:arm_base_link
+      name="${prefix}base_link"
+      radius="${base_radius}"
+      length="${base_length}"
+      material="gray"/>
+
+    <joint name="${prefix}world_to_base" type="fixed">
+      <parent link="${parent}"/>
+      <child link="${prefix}base_link"/>
+      <origin xyz="${base_xyz}" rpy="0 0 0"/>
+    </joint>
+
+    <xacro:arm_box_link
+      name="${prefix}link_1"
+      length="${link1_length}"
+      width="${link1_width}"
+      material="orange"/>
+    <xacro:revolute_z_joint
+      name="${prefix}joint_1"
+      parent="${prefix}base_link"
+      child="${prefix}link_1"
+      xyz="0 0 ${base_length / 2.0}"/>
+
+    <xacro:arm_box_link
+      name="${prefix}link_2"
+      length="${link2_length}"
+      width="${link2_width}"
+      material="blue"/>
+    <xacro:revolute_z_joint
+      name="${prefix}joint_2"
+      parent="${prefix}link_1"
+      child="${prefix}link_2"
+      xyz="${link1_length} 0 0"/>
+
+    <xacro:arm_box_link
+      name="${prefix}link_3"
+      length="${link3_length}"
+      width="${link3_width}"
+      material="green"/>
+    <xacro:revolute_z_joint
+      name="${prefix}joint_3"
+      parent="${prefix}link_2"
+      child="${prefix}link_3"
+      xyz="${link2_length} 0 0"/>
+  </xacro:macro>
+</robot>
+

@@ -1,0 +1,23 @@
+{
+  "files.associations": {
+    "*.urdf": "xml",
+    "*.xacro": "xml",
+    "*.rviz": "yaml"
+  },
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.formatOnSave": false,
+  "python.defaultInterpreterPath": "/usr/bin/python3",
+  "python.analysis.exclude": [
+    "**/build",
+    "**/install",
+    "**/log",
+    "**/.venv"
+  ],
+  "cmake.configureOnOpen": false,
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.cwd": "${workspaceFolder}",
+  "xml.format.splitAttributes": true,
+  "xml.validation.enabled": true
+}
+

@@ -1,0 +1,110 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "environment check",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "./tools/env_check.sh"
+      ],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "build workspace",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "./tools/build_workspace.sh"
+      ],
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "validate workspace",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "./tools/validate_workspace.sh"
+      ],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "generate 2R URDF",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "./tools/generate_urdf_preview.sh 2r"
+      ]
+    },
+    {
+      "label": "generate 3R URDF",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "./tools/generate_urdf_preview.sh 3r"
+      ]
+    },
+    {
+      "label": "launch 2R",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "./tools/launch_2r.sh"
+      ]
+    },
+    {
+      "label": "launch 3R",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "./tools/launch_3r.sh"
+      ]
+    },
+    {
+      "label": "launch mobile",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "./tools/launch_mobile.sh"
+      ]
+    },
+    {
+      "label": "launch mobile sensors",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "./tools/launch_mobile_sensors.sh"
+      ]
+    },
+    {
+      "label": "launch combined",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "./tools/launch_combined.sh"
+      ]
+    }
+  ]
+}

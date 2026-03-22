@@ -1,0 +1,30 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "ROS 2 Launch 2R",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "bash -lc 'cd ${workspaceFolder} && ./tools/launch_2r.sh'"
+    },
+    {
+      "name": "ROS 2 Launch 3R",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "bash -lc 'cd ${workspaceFolder} && ./tools/launch_3r.sh'"
+    },
+    {
+      "name": "ROS 2 Launch Mobile",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "bash -lc 'cd ${workspaceFolder} && ./tools/launch_mobile.sh'"
+    },
+    {
+      "name": "ROS 2 Launch Combined",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "bash -lc 'cd ${workspaceFolder} && ./tools/launch_combined.sh'"
+    }
+  ]
+}
+

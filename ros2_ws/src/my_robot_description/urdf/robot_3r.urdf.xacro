@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot name="robot_3r_xacro" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="components/arm_macros.xacro"/>
+
+  <xacro:property name="base_radius" value="0.08"/>
+  <xacro:property name="base_length" value="0.02"/>
+  <xacro:property name="link1_length" value="0.5"/>
+  <xacro:property name="link1_width" value="0.04"/>
+  <xacro:property name="link2_length" value="0.4"/>
+  <xacro:property name="link2_width" value="0.03"/>
+  <xacro:property name="link3_length" value="0.2"/>
+  <xacro:property name="link3_width" value="0.02"/>
+
+  <link name="world"/>
+
+  <xacro:planar_arm_3r
+    prefix=""
+    parent="world"
+    base_xyz="0 0 ${base_length / 2.0}"
+    base_radius="${base_radius}"
+    base_length="${base_length}"
+    link1_length="${link1_length}"
+    link1_width="${link1_width}"
+    link2_length="${link2_length}"
+    link2_width="${link2_width}"
+    link3_length="${link3_length}"
+    link3_width="${link3_width}"/>
+</robot>

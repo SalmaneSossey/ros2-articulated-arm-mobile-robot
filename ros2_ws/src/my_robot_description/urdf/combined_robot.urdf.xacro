@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<robot name="combined_mobile_manipulator" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="components/mobile_base_macros.xacro"/>
+  <xacro:include filename="components/arm_macros.xacro"/>
+
+  <xacro:property name="base_length" value="0.3"/>
+  <xacro:property name="base_width" value="0.2"/>
+  <xacro:property name="base_height" value="0.05"/>
+  <xacro:property name="wheel_radius" value="0.04"/>
+  <xacro:property name="wheel_length" value="0.02"/>
+
+  <xacro:property name="arm_base_radius" value="0.08"/>
+  <xacro:property name="arm_base_length" value="0.02"/>
+  <xacro:property name="link1_length" value="0.5"/>
+  <xacro:property name="link1_width" value="0.04"/>
+  <xacro:property name="link2_length" value="0.4"/>
+  <xacro:property name="link2_width" value="0.03"/>
+  <xacro:property name="link3_length" value="0.2"/>
+  <xacro:property name="link3_width" value="0.02"/>
+
+  <link name="world"/>
+
+  <xacro:four_wheel_base
+    prefix="mobile_"
+    parent="world"
+    base_xyz="0 0 ${base_height / 2.0 + 2.0 * wheel_radius}"
+    base_length="${base_length}"
+    base_width="${base_width}"
+    base_height="${base_height}"
+    wheel_radius="${wheel_radius}"
+    wheel_length="${wheel_length}"/>
+
+  <xacro:planar_arm_3r
+    prefix="arm_"
+    parent="mobile_base_link"
+    base_xyz="0 0 ${base_height / 2.0 + arm_base_length / 2.0}"
+    base_radius="${arm_base_radius}"
+    base_length="${arm_base_length}"
+    link1_length="${link1_length}"
+    link1_width="${link1_width}"
+    link2_length="${link2_length}"
+    link2_width="${link2_width}"
+    link3_length="${link3_length}"
+    link3_width="${link3_width}"/>
+</robot>
