@@ -77,12 +77,42 @@ From the logs:
 - sensor model included `lidar_link` and `camera_link`
 - combined robot included `arm_base_link`, `arm_link_1`, `arm_link_2`, `arm_link_3`, and all mobile wheel links
 
+### Mobile Robot
+
+The shared RViz screenshot confirms:
+
+- the 4-wheel base renders correctly
+- wheel placement is consistent with the chassis corners
+- TF axes are visible on the base and wheel links
+- the `mobile.rviz` configuration loads with `Grid`, `RobotModel`, and `TF`
+
+### Mobile Robot With Sensors
+
+The shared RViz screenshot confirms:
+
+- the LiDAR appears above the chassis as a blue cylinder
+- the camera appears at the front edge as a red box
+- both sensor frames are visible in TF
+- the sensor placement is consistent with the intended fixed joints
+
+### Combined Robot
+
+The shared RViz screenshot confirms:
+
+- the mobile base and 3R arm are present in one model
+- wheel joints and arm joints appear together in `joint_state_publisher_gui`
+- the mounted arm sits on top of the mobile base as intended
+- the green third link is visible on the combined manipulator
+
 ## Screenshots
 
 Screenshots of the live RViz and `joint_state_publisher_gui` sessions were shared during validation and visually confirm:
 
 - the 2R arm rendering
 - the 3R arm rendering
+- the mobile robot rendering
+- the mobile robot with sensors rendering
+- the combined robot rendering
 - TF and RobotModel enabled in RViz
 
 If you want these screenshots embedded directly in the repository, save them into a tracked folder such as `docs/images/` and reference them from this document.
