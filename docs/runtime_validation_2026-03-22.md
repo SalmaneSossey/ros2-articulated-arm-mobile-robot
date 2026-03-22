@@ -59,6 +59,8 @@ The 2R arm was displayed in RViz with:
 - blue second link
 - working joint sliders in `joint_state_publisher_gui`
 
+![2R arm RViz screenshot](images/2r_arm.png)
+
 ### 3R Arm
 
 The 3R arm was displayed in RViz with:
@@ -66,6 +68,8 @@ The 3R arm was displayed in RViz with:
 - visible third link
 - green terminal link
 - three working joint sliders in `joint_state_publisher_gui`
+
+![3R arm RViz screenshot](images/3r_arm.png)
 
 ### Mobile And Combined Robots
 
@@ -86,6 +90,8 @@ The shared RViz screenshot confirms:
 - TF axes are visible on the base and wheel links
 - the `mobile.rviz` configuration loads with `Grid`, `RobotModel`, and `TF`
 
+The plain mobile-base screenshot was visually confirmed in the live session, but it has not yet been exported into `docs/images/`.
+
 ### Mobile Robot With Sensors
 
 The shared RViz screenshot confirms:
@@ -95,6 +101,8 @@ The shared RViz screenshot confirms:
 - both sensor frames are visible in TF
 - the sensor placement is consistent with the intended fixed joints
 
+![Mobile robot with sensors RViz screenshot](images/mobile_with_sensors.png)
+
 ### Combined Robot
 
 The shared RViz screenshot confirms:
@@ -103,6 +111,8 @@ The shared RViz screenshot confirms:
 - wheel joints and arm joints appear together in `joint_state_publisher_gui`
 - the mounted arm sits on top of the mobile base as intended
 - the green third link is visible on the combined manipulator
+
+![Combined mobile manipulator RViz screenshot](images/combined_robot.png)
 
 ## Screenshots
 
