@@ -125,4 +125,4 @@ Screenshots of the live RViz and `joint_state_publisher_gui` sessions were share
 - the combined robot rendering
 - TF and RobotModel enabled in RViz
 
-If you want these screenshots embedded directly in the repository, save them into a tracked folder such as `docs/images/` and reference them from this document.
+The exported screenshots are stored under [`docs/images/`](images).

@@ -2,6 +2,18 @@
 
 This repository contains a clean ROS 2 description workspace for a robotics TP built for Ubuntu under WSL. It covers the full progression from a basic URDF model to articulated arms, Xacro refactoring, mobile robots, onboard sensors, and a combined mobile manipulator.
 
+## Quick Start
+
+```bash
+git clone https://github.com/SalmaneSossey/ros2-articulated-arm-mobile-robot.git
+cd ros2-articulated-arm-mobile-robot
+source tools/source_ros.sh
+tools/validate_workspace.sh
+tools/launch_2r.sh
+```
+
+If ROS 2 Humble is not installed yet, start with [INSTALL_WSL_UBUNTU.md](INSTALL_WSL_UBUNTU.md).
+
 ## Highlights
 
 - ROS 2 Humble description package using `ament_cmake`
@@ -9,6 +21,15 @@ This repository contains a clean ROS 2 description workspace for a robotics TP b
 - RViz2 launch flows for arm, mobile, sensor, and combined robots
 - Helper scripts for setup, build, validation, and launch
 - Validated in a live Ubuntu WSL environment with RViz2 and `joint_state_publisher_gui`
+
+## Validation Status
+
+- `check_urdf` validation passes for the plain URDF models
+- Xacro expansion and generated URDF validation pass for all modular robots
+- `colcon build` succeeds for `my_robot_description`
+- RViz2 and `joint_state_publisher_gui` were confirmed in a live WSL session
+
+See [docs/runtime_validation_2026-03-22.md](docs/runtime_validation_2026-03-22.md) for the recorded runtime validation notes and screenshots.
 
 ## Project Scope
 
@@ -40,6 +61,16 @@ The repository implements:
 ### Combined Mobile Manipulator
 
 ![Combined robot screenshot](docs/images/combined_robot.png)
+
+## Tech Stack
+
+- ROS 2 Humble
+- `ament_cmake`
+- URDF
+- Xacro
+- RViz2
+- `robot_state_publisher`
+- `joint_state_publisher_gui`
 
 ## Repository Layout
 
@@ -140,6 +171,14 @@ source install/setup.bash
 
 This extra CMake argument is intentional on machines where `python3` on `PATH` points to `pyenv` instead of Ubuntu's system Python. ROS 2 package metadata tools expect the distro Python environment.
 
+## One-Command Validation
+
+For the full non-GUI validation path:
+
+```bash
+./tools/validate_workspace.sh
+```
+
 ## Source The Environment
 
 Use:
@@ -222,3 +261,7 @@ See:
 - [docs/validation_checklist.md](docs/validation_checklist.md)
 - [docs/runtime_validation_2026-03-22.md](docs/runtime_validation_2026-03-22.md)
 - [INSTALL_WSL_UBUNTU.md](INSTALL_WSL_UBUNTU.md)
+
+## License
+
+This project is released under the [MIT License](LICENSE).

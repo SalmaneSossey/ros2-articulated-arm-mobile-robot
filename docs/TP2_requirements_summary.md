@@ -1,5 +1,7 @@
 # TP2 Requirements Summary
 
+This document maps the expected TP deliverables to the files and modules present in the repository.
+
 ## Covered Deliverables
 
 - Basic URDF single-link robot: [robot.urdf](../ros2_ws/src/my_robot_description/urdf/robot.urdf)

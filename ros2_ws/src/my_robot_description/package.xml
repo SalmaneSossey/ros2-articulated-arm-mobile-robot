@@ -2,7 +2,7 @@
 <package format="3">
   <name>my_robot_description</name>
   <version>0.1.0</version>
-  <description>ROS 2 robot description package for the TP2 URDF/Xacro exercises.</description>
+  <description>ROS 2 robot description package featuring articulated arms, mobile robots, sensors, and modular Xacro models for the TP exercises.</description>
   <maintainer email="sosseysalmane@gmail.com">SalmaneSossey</maintainer>
   <license>MIT</license>
 

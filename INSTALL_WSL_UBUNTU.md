@@ -1,23 +1,18 @@
 # Install Guide For Ubuntu Under WSL
 
-## Detected Environment
+## Reference Validation Environment
 
-- Host style: WSL2 on Linux kernel `6.6.87.2-microsoft-standard-WSL2`
-- Distribution: Ubuntu 22.04.5 LTS (`jammy`)
-- Python detected first on `PATH`: `/home/salmane/.pyenv/shims/python3`
-- Python version: `3.11.9`
-- ROS setup present on disk: `/opt/ros/humble/setup.bash`
-- ROS environment already sourced in the original shell: no
-- `ros2` available after sourcing `/opt/ros/humble/setup.bash`: yes
-- `colcon` available: yes
-- `check_urdf` available after sourcing ROS: yes
-- `rviz2` available after sourcing ROS: no
-- `xacro` available after sourcing ROS: no
-- `python3` on current `PATH` points to a `pyenv` interpreter, not Ubuntu system Python
+This repository was validated on:
 
-## What Is Missing
+- WSL2
+- Ubuntu 22.04 (`jammy`)
+- ROS 2 Humble
 
-The current machine appears to have a partial ROS 2 Humble installation. At minimum, the following packages are likely still needed for this TP:
+One practical issue observed during validation was that some shells used `pyenv`'s `python3` instead of Ubuntu's system Python. The helper scripts in this repository already account for that during `colcon build`.
+
+## Typical Missing Packages
+
+If your Ubuntu/WSL setup has only a partial ROS 2 Humble installation, the following packages are commonly needed for this repository:
 
 - `ros-humble-rviz2`
 - `ros-humble-xacro`
@@ -93,7 +88,7 @@ source tools/source_ros.sh
 tools/launch_2r.sh
 ```
 
-If you prefer building manually and your shell uses `pyenv`, force the ROS build to use Ubuntu's Python:
+If you prefer building manually and your shell uses `pyenv`, force the ROS build to use Ubuntu's system Python:
 
 ```bash
 cd ros2_ws
